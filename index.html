@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ===== CONFIGURACIÓN BÁSICA ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== SEO: lo que Google enseña en los resultados ===== -->
+  <title>Café Ramé · Café de especialidad, panadería y brunch en Granada</title>
+  <meta name="description" content="Café Ramé en Granada: café de especialidad, panadería y repostería propia, desayunos, brunch y meriendas. Tartas por encargo. Consulta nuestra carta y horario.">
+
+  <!-- ===== TIPOGRAFÍAS (Google Fonts) ===== -->
+  <!-- Cormorant Garamond: títulos elegantes, como el logo -->
+  <!-- Jost: texto normal, limpio y fácil de leer -->
+  <!-- Allura: letra manuscrita para imitar el neón del local -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- ===== NUESTROS ESTILOS ===== -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       CABECERA: logo + menú de navegación
+       ===================================================== -->
+  <header class="cabecera" id="cabecera">
+    <a href="#inicio" class="logo">RAMÉ</a>
+
+    <!-- Botón hamburguesa: solo se ve en el móvil (lo controla script.js) -->
+    <button class="menu-boton" id="menuBoton" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="menu" id="menu">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#carta">Carta</a>
+      <a href="#tartas">Tartas</a>
+      <a href="#galeria">Galería</a>
+      <a href="#visitanos" class="menu-destacado">Visítanos</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         PORTADA (HERO): lo primero que se ve al entrar
+         ===================================================== -->
+    <section class="hero" id="inicio">
+      <div class="hero-contenido">
+        <p class="hero-etiqueta">Café de especialidad · Granada</p>
+        <h1>Café Ramé</h1>
+        <!-- Frase del neón del local -->
+        <p class="neon">Un poco de belleza<br>+ un poco de caos</p>
+        <div class="hero-botones">
+          <a href="#carta" class="boton boton-dorado">Ver la carta</a>
+          <a href="#visitanos" class="boton boton-borde">Cómo llegar</a>
+        </div>
+        <!-- Indicador "Abierto ahora / Cerrado": lo rellena script.js -->
+        <p class="estado" id="estadoHero"></p>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         NOSOTROS: qué ofrece la cafetería
+         ===================================================== -->
+    <section class="seccion" id="nosotros">
+      <h2 class="titulo-seccion">Tu rincón del barrio</h2>
+      <p class="intro">
+        Un sitio tranquilo para empezar el día con buen café, pan recién hecho
+        y tostadas que no se quedan cortas.
+      </p>
+
+      <!-- Tres tarjetas con lo que hacen -->
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <span class="tarjeta-icono">☕</span>
+          <h3>Café de especialidad</h3>
+          <p>Espresso, latte, americano o matcha, preparados con mimo en cada taza.</p>
+        </article>
+        <article class="tarjeta">
+          <span class="tarjeta-icono">🥖</span>
+          <h3>Panadería y repostería</h3>
+          <p>Pan, bollería, brownies y tartas que hacemos nosotros cada día.</p>
+        </article>
+        <article class="tarjeta">
+          <span class="tarjeta-icono">🥞</span>
+          <h3>Desayunos · Brunch · Meriendas</h3>
+          <p>De la primera tostada de la mañana al dulce de media tarde.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CARTA: con filtros por categoría (los botones los usa script.js)
+         Cada plato lleva data-categoria para poder filtrarlo
+         ===================================================== -->
+    <section class="seccion seccion-oscura" id="carta">
+      <h2 class="titulo-seccion">Nuestra carta</h2>
+
+      <!-- Botones de filtro -->
+      <div class="filtros" id="filtros">
+        <button class="filtro activo" data-filtro="todo">Todo</button>
+        <button class="filtro" data-filtro="bebidas">Bebidas</button>
+        <button class="filtro" data-filtro="dulce">Dulce</button>
+        <button class="filtro" data-filtro="tostadas">Tostadas</button>
+      </div>
+
+      <div class="carta">
+        <!-- ---------- BEBIDAS ---------- -->
+        <div class="plato" data-categoria="bebidas">
+          <div class="plato-cabecera"><h3>Café con leche</h3><span class="precio">1,80 €</span></div>
+        </div>
+        <div class="plato" data-categoria="bebidas">
+          <div class="plato-cabecera"><h3>Café americano</h3><span class="precio">1,60 €</span></div>
+        </div>
+        <div class="plato" data-categoria="bebidas">
+          <div class="plato-cabecera"><h3>Matcha o matcha latte</h3><span class="precio">3,60 €</span></div>
+        </div>
+        <div class="plato" data-categoria="bebidas">
+          <div class="plato-cabecera"><h3>Té o infusión</h3><span class="precio">2,10 €</span></div>
+        </div>
+        <div class="plato" data-categoria="bebidas">
+          <div class="plato-cabecera"><h3>Zumo de naranja natural</h3><span class="precio">3,20 €</span></div>
+        </div>
+
+        <!-- ---------- DULCE ---------- -->
+        <div class="plato" data-categoria="dulce">
+          <div class="plato-cabecera"><h3>Argentinitos</h3><span class="precio">1,50 €</span></div>
+          <p>Dos mini cruasanes de mantequilla.</p>
+        </div>
+        <div class="plato" data-categoria="dulce">
+          <div class="plato-cabecera"><h3>Brownie</h3><span class="precio">4,20 / 4,70 €</span></div>
+          <p>De chocolate con nueces, o de chocolate blanco con pistachos.</p>
+        </div>
+
+        <!-- ---------- TOSTADAS (pan multicereales) ---------- -->
+        <!-- Dos precios: media / entera -->
+        <div class="plato" data-categoria="tostadas">
+          <div class="plato-cabecera"><h3>Mariola</h3><span class="precio">4,30 / 8,60 €</span></div>
+          <p>Pavo, tomate, huevo revuelto y aguacate.</p>
+        </div>
+        <div class="plato" data-categoria="tostadas">
+          <div class="plato-cabecera"><h3>Valkiria</h3><span class="precio">6 / 12 €</span></div>
+          <p>Salmón, Philadelphia, aguacate y balsámico.</p>
+        </div>
+        <div class="plato plato-estrella" data-categoria="tostadas">
+          <div class="plato-cabecera"><h3>Ramé <small>la de la casa</small></h3><span class="precio">5,30 / 10,60 €</span></div>
+          <p>Jamón serrano, aguacate mix y huevo poché.</p>
+        </div>
+        <div class="plato" data-categoria="tostadas">
+          <div class="plato-cabecera"><h3>Violet</h3><span class="precio">3,50 / 7 €</span></div>
+          <p>Queso cottage, aguacate, miel y arándanos.</p>
+        </div>
+      </div>
+
+      <p class="nota-carta">
+        Tostadas en pan multicereales · precio media / entera.<br>
+        ¿Buscas otra cosa? Pregúntanos, tenemos más opciones en el local.
+      </p>
+    </section>
+
+    <!-- =====================================================
+         TARTAS POR ENCARGO
+         ===================================================== -->
+    <section class="seccion tartas" id="tartas">
+      <div class="tartas-imagen">
+        <img src="img/cheesecake.jpg" alt="Porción de tarta de queso con pistacho" loading="lazy">
+      </div>
+      <div class="tartas-texto">
+        <h2 class="titulo-seccion">Tartas por encargo</h2>
+        <p>
+          Cumpleaños, celebraciones o simplemente porque sí. Hacemos tartas
+          personalizadas a tu gusto: dinos el sabor, el tamaño y la decoración.
+        </p>
+        <!-- wa.me abre un chat de WhatsApp con ese número (34 = prefijo de España) -->
+        <a href="https://wa.me/34958097647?text=Hola%2C%20quer%C3%ADa%20encargar%20una%20tarta"
+           class="boton boton-dorado" target="_blank" rel="noopener">
+          Encargar por WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         GALERÍA DE FOTOS
+         ===================================================== -->
+    <section class="seccion" id="galeria">
+      <h2 class="titulo-seccion">Pásate a vernos</h2>
+      <div class="galeria">
+        <img src="img/tostada-rame.jpg" alt="Tostada Ramé con jamón y huevo poché" loading="lazy">
+        <img src="img/local.jpg" alt="Interior del local con sillas de terciopelo mostaza" loading="lazy">
+        <img src="img/mostrador.jpg" alt="Mostrador con pan y bollería del día" loading="lazy">
+        <img src="img/desayuno.jpg" alt="Desayuno con tostadas y cafés" loading="lazy">
+        <img src="img/neon.jpg" alt="Neón 'Un poco de belleza + un poco de caos'" loading="lazy">
+        <img src="img/rincon-plantas.jpg" alt="Barra junto a la ventana con plantas" loading="lazy">
+      </div>
+    </section>
+
+    <!-- =====================================================
+         VISÍTANOS: horario, contacto y mapa
+         ===================================================== -->
+    <section class="seccion seccion-oscura" id="visitanos">
+      <h2 class="titulo-seccion">Visítanos</h2>
+
+      <div class="visita">
+        <div class="visita-datos">
+          <!-- Estado en tiempo real (script.js) -->
+          <p class="estado" id="estadoVisita"></p>
+
+          <h3>Horario</h3>
+          <!-- Cada fila tiene data-dias (0 = domingo … 6 = sábado) para resaltar el día de hoy -->
+          <ul class="horario">
+            <li data-dias="1,2,3,4,5,6"><span>Lunes a sábado</span><span>8:00–13:30 · 16:30–20:00</span></li>
+            <li data-dias="0"><span>Domingo</span><span>9:00–14:00</span></li>
+          </ul>
+
+          <h3>Contacto</h3>
+          <!-- tel: permite llamar con un toque desde el móvil -->
+          <p><a href="tel:+34958097647">958 09 76 47</a> · también por WhatsApp</p>
+          <p><a href="https://www.instagram.com/cafe_rame/" target="_blank" rel="noopener">@cafe_rame en Instagram</a></p>
+
+          <h3>Dónde estamos</h3>
+          <!-- TODO: cambia este texto por la dirección exacta del local -->
+          <p>Granada</p>
+          <a class="boton boton-borde" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Ram%C3%A9%20Granada">
+            Abrir en Google Maps
+          </a>
+        </div>
+
+        <!-- Mapa incrustado. TODO: cuando tengas la dirección, ponla en q= -->
+        <iframe class="mapa"
+          src="https://maps.google.com/maps?q=Caf%C3%A9%20Ram%C3%A9%20Granada&output=embed"
+          loading="lazy" title="Mapa de Café Ramé"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================
+       PIE DE PÁGINA
+       ===================================================== -->
+  <footer class="pie">
+    <p class="logo">RAMÉ</p>
+    <p>Café de especialidad · Panadería · Repostería · Granada</p>
+    <!-- El año se actualiza solo con script.js -->
+    <p class="pie-legal">© <span id="anio"></span> Café Ramé</p>
+  </footer>
+
+  <!-- ===== NUESTRO JAVASCRIPT (al final, para que el HTML ya esté cargado) ===== -->
+  <script src="js/script.js"></script>
+</body>
+</html>
